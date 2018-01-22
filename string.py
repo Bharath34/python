@@ -30,3 +30,10 @@ print(bun.upper())
 print(bun + "sample example")
 #print a multiple times
 print(bun * 12)
+#set a data type
+#Set is an order collection of unique item.Set is defined by values separated by comma insibe bracws{ }.
+
+#define a set data type
+l = ['bunny','teja','ranjith','bunny1','bunny']
+g = set(l)
+print(g) #it will remove the bunny
