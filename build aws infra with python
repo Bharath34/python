@@ -3,6 +3,7 @@ from boto.ec2 import connect_to_region
 
 ec2-conn = connect_to_region("") 
 #create security group and allowing to SSH.
+#with fire wall i am enabling all the ports except port 22
 inst_sg = ec2_conn.create_security_group("inst-sg","inst sec group")
 inst_sg.authorize("tcp",22,22,"0.0.0.0/0")
 
