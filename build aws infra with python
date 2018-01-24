@@ -1,0 +1,23 @@
+#!usr/bin/env python
+from boto.ec2 import connect_to_region
+
+ec2-conn = connect_to_region("") 
+#create security group and allowing to SSH.
+inst_sg = ec2_conn.create_security_group("inst-sg","inst sec group")
+inst_sg.authorize("tcp",22,22,"0.0.0.0/0")
+
+
+#create and save a public keysfro ssh login.
+inst_key = ec2_conn.create_key_pair("inst-key-01")
+demo_key.save(".")
+
+#create an insatnce usin AWS linux.
+resrv = ec2_conn.run_instance("ami-id",key_name"inst-key-01",
+instance_type="t1.micro",security_groups["inst_sg"])
+
+#get the instance ip address
+
+inst = resrv.instance[0]
+while inst.update() !='running':
+time.sleep(1)
+print inst.ip_address
