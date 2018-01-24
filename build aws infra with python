@@ -22,3 +22,24 @@ inst = resrv.instance[0]
 while inst.update() !='running':
 time.sleep(1)
 print inst.ip_address
+##example-2 i am creating an s3 bucket in us-east"
+##making it to open to put the images
+#CROS (CROSS-ORGIN RESOURES SHARING)
+##example-2 i am creating an s3 bucket in us-east"
+##making it to open to put the images
+#CROS (CROSS-ORGIN RESOURES SHARING)
+import boto
+from boto.s3.cors import CORSconfigutaion
+s3_conn = boto.connect_s3()
+
+#creating a bucket with uniq name
+bucket = s3_conn.create_bucket("uniqe_name", location="   ")
+
+#create CORE configutration
+cors = CORSconfigutaion()
+cors_conf.add_rule(allowed_method=['GET', ], allowed_origin=['*', ], allowed_header=['Authorization', ],
+cors_conf.add_rule(allowed_method=['POST', ], allowed_origin=['*', ], allowed_header=['Authorization', ],
+cors_conf.add_rule(allowed_method=['PUT', ], allowed_origin=['*', ], allowed_header=['Authorization', ],
+
+#apply CORS config to our buckets
+bucket.set_cors(cors)
